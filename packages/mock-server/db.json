@@ -1,0 +1,6 @@
+{
+  "portfolios": [
+    { "id": 1, "portfolio": "diverse-portfolio", "totalWorth": 12548687  },
+    { "id": 2, "portfolio": null, "totalWorth": 0  }
+  ]
+}
