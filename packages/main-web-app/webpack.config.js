@@ -1,28 +1,9 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const path = require('path');
 
-
-const PATH_DELIMITER = "[\\\\/]"; // match 2 antislashes or one slash
-
-const safePath = (module) => module.split(/[\\\/]/g).join(PATH_DELIMITER);
-
-const generateIncludes = (modules) => {
-    return [
-        new RegExp(`(${modules.map(safePath).join("|")})$`),
-        new RegExp(
-            `(${modules.map(safePath).join("|")})${PATH_DELIMITER}(?!.*node_modules)`
-        ),
-    ];
-};
-
-const transpileModules = ["@mono/domain", "@mono/http-client"]; // using scoped packages
-
-console.log(generateIncludes(transpileModules))
-
 module.exports = {
     entry: {
         'web-app': './src/index.tsx',
-        // 'domain': '../domain/src/index.ts'
     },
     output: {
         path: path.resolve(__dirname, 'dist'),
