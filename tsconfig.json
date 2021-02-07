@@ -3,7 +3,16 @@
     "module": "commonjs",
     "moduleResolution": "Node",
     "target": "es6",
-    "sourceMap": true
+    "sourceMap": true,
+    "baseUrl": "packages",
+    "paths": {
+      "@mono/http-client": [
+        "http-client/src/index.ts"
+      ],
+      "@mono/domain": [
+        "domain/src/index.ts"
+      ]
+    }
   },
   "exclude": [
     "node_modules"

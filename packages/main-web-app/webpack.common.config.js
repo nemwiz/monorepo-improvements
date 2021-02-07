@@ -31,20 +31,11 @@ module.exports = {
         ]
     },
     resolve: {
-        alias: {
-            '@mono/http-client': path.resolve(__dirname, '../http-client/src/index.ts'),
-            '@mono/domain': path.resolve(__dirname, '../domain/src/index.ts')
-        },
         extensions: ['.tsx', '.ts', '.js', '.jsx'],
     },
-    mode: 'development',
     plugins: [
         new HtmlWebpackPlugin({
             template: 'src/index.html'
         })
-    ],
-    devServer: {
-        publicPath: '/',
-        historyApiFallback: true,
-    }
+    ]
 };

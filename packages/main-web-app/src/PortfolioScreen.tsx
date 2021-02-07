@@ -1,5 +1,5 @@
 import React, {FC, useEffect, useState} from "react";
-import {getPortfolios, Portfolio} from "@mono/domain";
+import {getPortfolios, NewPortfolio, Portfolio} from '@mono/domain';
 import Error from "./Error";
 
 const PortfolioScreen: FC<{ portfolioId: number }> = ({portfolioId}) => {
@@ -9,6 +9,8 @@ const PortfolioScreen: FC<{ portfolioId: number }> = ({portfolioId}) => {
     const [error, setError] = useState(undefined);
 
     useEffect(() => {
+
+        const a: NewPortfolio = {test: 1, dd: '31232'};
 
         getPortfolios(portfolioId).then(newPortfolio => {
             setPortfolio(newPortfolio);
