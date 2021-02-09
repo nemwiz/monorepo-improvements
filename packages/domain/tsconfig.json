@@ -1,8 +1,19 @@
 {
-  "extends": "../../tsconfig.json",
   "compilerOptions": {
+    "module": "commonjs",
+    "moduleResolution": "Node",
+    "target": "es6",
+    "sourceMap": true,
     "declaration": true,
     "jsx": "react",
-    "esModuleInterop": true
-  }
+    "esModuleInterop": true,
+    "composite": true,
+    "rootDir": "src",
+    "outDir": "dist"
+  },
+  "references": [
+    {
+      "path": "../http-client"
+    }
+  ]
 }

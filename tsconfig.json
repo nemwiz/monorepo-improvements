@@ -4,16 +4,19 @@
     "moduleResolution": "Node",
     "target": "es6",
     "sourceMap": true,
-    "baseUrl": "packages",
-    "paths": {
-      "@mono/http-client": [
-        "http-client/src/index.ts"
-      ],
-      "@mono/domain": [
-        "domain/src/index.ts"
-      ]
-    }
   },
+  "files": [],
+  "references": [
+    {
+      "path": "packages/main-web-app"
+    },
+    {
+      "path": "packages/http-client"
+    },
+    {
+      "path": "packages/domain"
+    }
+  ],
   "exclude": [
     "node_modules"
   ]

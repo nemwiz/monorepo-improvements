@@ -1,7 +1,22 @@
 {
-  "extends": "../../tsconfig.json",
   "compilerOptions": {
+    "module": "commonjs",
+    "moduleResolution": "Node",
+    "target": "es6",
+    "sourceMap": true,
+    "declaration": true,
     "jsx": "react",
     "esModuleInterop": true,
-  }
+    "composite": true,
+    "baseUrl": ".",
+    "paths": {
+      "@mono/domain/*": ["../domain/dist/*"]
+    }
+  },
+  "include": ["src"],
+  "references": [
+    {
+      "path": "../domain"
+    }
+  ]
 }
