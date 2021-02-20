@@ -1,31 +1,22 @@
 import {MonoError} from "./mono-error";
-import {UIErrorType} from "./ui-error-type";
 
-export const get = <T>(url: string): Promise<T> => {
+export const get = async <T>(url: string): Promise<T> => {
     return fetch(url)
-        .then((response) => {
+        .then( async (response) => {
 
             if (response.status >= 200 && response.status < 300) {
                 return response.json();
             } else if (response.status === 400) {
-                const error = new MonoError(response.statusText);
-                error.setUiType(UIErrorType.MODAL);
-                throw error;
+                throw new MonoError(response.statusText);
             } else if (response.status === 401) {
-                // try token refresh, log out if needed
-                console.log("Refreshing tokens...")
+                // try token refresh or show login screen etc.
+                console.log("Redirecting to login screen....")
             } else if (response.status === 403) {
-                const error = new MonoError("You are not allowed to see this page");
-                error.setUiType(UIErrorType.MODAL);
-                throw error;
+                throw new MonoError("You are not allowed to see this page");
             } else if (response.status === 404) {
-                const error = new MonoError(response.statusText);
-                error.setUiType(UIErrorType.ERROR_BOX);
-                throw error;
+                throw new MonoError(response.statusText);
             } else if (response.status >= 500) {
-                const error = new MonoError("Our system is experiencing issues at the moment, please try later.");
-                error.setUiType(UIErrorType.ERROR_BOX);
-                throw error;
+                throw new MonoError("Our system is experiencing issues at the moment, please try later.");
             } else {
                 throw new Error("Unhandled response code");
             }

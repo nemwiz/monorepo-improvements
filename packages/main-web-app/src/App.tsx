@@ -1,46 +1,20 @@
 import React, {useState} from 'react';
-import PortfolioScreen from "./PortfolioScreen";
+import Screen1 from "./Screen1";
+import Screen2 from "./Screen2";
 
 
 const App = () => {
 
-    const [portfolioId, setPortfolioId] = useState(1);
+    const [activeScreen, setActiveScreen] = useState<number>(1);
 
     return (
         <>
-            <div>
-                <button onClick={() => {
-                    setPortfolioId(1);
-                }}>This works
-                </button>
-                <button onClick={() => {
-                    setPortfolioId(2);
-                }}>Null portfolio
-                </button>
-                <button onClick={() => {
-                    setPortfolioId(400);
-                }}>400
-                </button>
-                <button onClick={() => {
-                    setPortfolioId(401);
-                }}>401
-                </button>
-                <button onClick={() => {
-                    setPortfolioId(403);
-                }}>403
-                </button>
-                <button onClick={() => {
-                    setPortfolioId(404);
-                }}>404
-                </button>
-                <button onClick={() => {
-                    setPortfolioId(500);
-                }}>500
-                </button>
+            <button className={'btn btn-lg'} onClick={()=> setActiveScreen(1)}>Portfolio</button>
+            <button className={'btn btn-lg'} onClick={()=> setActiveScreen(2)}>Accounts</button>
+
+            <div className={'active-screen'}>
+                {activeScreen === 1 ? <Screen1/> : <Screen2/>}
             </div>
-
-
-            <PortfolioScreen portfolioId={portfolioId}/>
         </>
     )
 }

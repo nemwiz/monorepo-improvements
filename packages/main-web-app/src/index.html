@@ -4,6 +4,198 @@
     <meta charset='UTF-8'>
     <title>Monorepo Web App</title>
 </head>
+
+<style>
+    .btn{
+        color: #6860B5;
+        font-family: 'Sora', sans-serif;
+        font-size: 17px;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        padding: 12px 23px 10px;
+        border: none;
+        border-radius: 0;
+        box-shadow: 0 0 0 2px rgba(104,96,181,0.3) inset;
+        position: relative;
+        overflow: hidden;
+        transition: all 0.3s ease 0.3s;
+    }
+    .btn:focus,
+    .btn:hover{
+        color: #fff;
+        background: #6860B5;
+        border: none;
+        box-shadow: 0 0 0 2px #6860B5 inset,0 0 15px #6860B5;
+        border-radius: 25px/50px;
+    }
+    .btn:before,
+    .btn:after,
+    .btn span:before,
+    .btn span:after{
+        content: "";
+        background: linear-gradient(to right,transparent, #6860B5);
+        width: 100%;
+        height: 2px;
+        position: absolute;
+        top: 0;
+        left: -100%;
+    }
+    .btn:after{
+        transform: rotateY(180deg);
+        left : 100%;
+        top: auto;
+        bottom: 0;
+    }
+    .btn span:before,
+    .btn span:after{
+        background: linear-gradient(transparent, #6860B5);
+        width: 2px;
+        height: 100%;
+        left: auto;
+        right: 0;
+        top: -100%;
+    }
+    .btn span:after{
+        transform: rotateX(180deg);
+        top: 100%;
+        right: auto;
+        left: 0;
+    }
+    .btn:hover:before{
+        left: 100%;
+        transition: all 0.3s ease 0s;
+    }
+    .btn:hover:after{
+        left: -100%;
+        transition: all 0.3s ease 0.2s;
+    }
+    .btn:hover span:before{
+        top: 100%;
+        transition: all 0.3s ease 0.1s;
+    }
+    .btn:hover span:after{
+        top: 0;
+        transition: all 0.3s ease 0.3s;
+    }
+    @media only screen and (max-width: 767px){
+        .btn{ margin-bottom: 20px; }
+    }
+
+    .active-screen {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: 80vh;
+    }
+    
+    .sub-button{
+        text-transform: uppercase;
+        border-radius: 0;
+        letter-spacing: 1px;
+        color: #fff;
+        border: none;
+        position: relative;
+        font-size: 18px;
+    }
+    .sub-button:hover{ color: #fff; }
+    .sub-button:before,
+    .sub-button:after{
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        transition: all 0.5s ease 0s;
+    }
+    .sub-button:hover:before{
+        background: rgba(255, 255, 255, 0.7);
+        left: 60%;
+        right: 60%;
+    }
+    .sub-button:hover:after{
+        background: rgba(255, 255, 255, 0.7);
+        top: 60%;
+        bottom: 60%;
+    }
+    .sub-button.red{ background: #fe6d6d; }
+    .sub-button.blue{ background: #3cb4e5; }
+    .sub-button.orange{ background: #ee955b; }
+    .sub-button.green{ background: #79d799; }
+    @media only screen and (max-width: 767px){
+        .sub-button{ margin-bottom: 20px; }
+    }
+
+    .button-stack {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+    }
+
+    .button-stack button {
+        margin: 15px 0 0 0;
+    }
+
+    .portfolio {
+        margin: 20px 0 0 0;
+        font-size: 20px;
+        font-weight: bold;
+    }
+
+    .inline-error {
+        margin: 20px 0 0 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 50vw;
+        height: 30vh;
+        font-size: 22px;
+    }
+
+    .cookiesContent {
+        width: 320px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background-color: #fff;
+        color: #000;
+        text-align: center;
+        border-radius: 20px;
+        padding: 30px 30px 70px;
+        box-shadow: 5px 8px 8px 0 #000000;
+    }
+    .cookiesContent button.close {
+        width: 30px;
+        font-size: 20px;
+        color: #c0c5cb;
+        align-self: flex-end;
+        background-color: transparent;
+        border: none;
+        margin-bottom: 10px;
+    }
+    .cookiesContent img {
+        width: 82px;
+        margin-bottom: 15px;
+    }
+    .cookiesContent p {
+        margin-bottom: 40px;
+        font-size: 18px;
+    }
+    .cookiesContent button.accept {
+        background-color: #ed6755;
+        border: none;
+        border-radius: 5px;
+        width: 200px;
+        padding: 14px;
+        font-size: 16px;
+        color: white;
+        box-shadow: 0px 6px 18px -5px #ed6755;
+    }
+
+</style>
+
 <body>
 
 <div id='root'>

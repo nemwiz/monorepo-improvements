@@ -8,9 +8,11 @@
     "jsx": "react",
     "esModuleInterop": true,
     "composite": true,
+    "tsBuildInfoFile": "./dist/tsbuildinfo",
     "rootDir": "src",
     "outDir": "dist"
   },
+  "include": ["src"],
   "references": [
     {
       "path": "../http-client"

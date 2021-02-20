@@ -1,6 +1,6 @@
 import React, {FC, useEffect, useState} from "react";
 import {getPortfolios, Portfolio} from '@mono/domain';
-import Error from "./Error";
+import InlineError from "./InlineError";
 
 const PortfolioScreen: FC<{ portfolioId: number }> = ({portfolioId}) => {
 
@@ -23,11 +23,11 @@ const PortfolioScreen: FC<{ portfolioId: number }> = ({portfolioId}) => {
     if (isLoading) {
         return <div>Loading...</div>
     } else if (error) {
-        return <Error error={error}/>
+        return <InlineError error={error}/>
     } else {
         return (
-            <div>
-                {portfolio && portfolio.portfolio !== null ? <div>{portfolio.portfolio} {portfolio.totalWorth}</div> : null}
+            <div className={'portfolio'}>
+                {portfolio && portfolio.portfolio !== null ? <div>{portfolio.portfolio} : {portfolio.totalWorth} $</div> : null}
                 {portfolio && portfolio.portfolio === null ? <div>You do not have any portfolios :(</div> : null}
             </div>
         )

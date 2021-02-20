@@ -1,6 +1,10 @@
 {
   "portfolios": [
-    { "id": 1, "portfolio": "diverse-portfolio", "totalWorth": 12548687  },
+    { "id": 1, "portfolio": "This is your awesome portfolio", "totalWorth": 12548687  },
     { "id": 2, "portfolio": null, "totalWorth": 0  }
+  ],
+  "accounts": [
+    { "id": 1, "account": "Bonus saver", "balance": 7812331  },
+    { "id": 2, "account": "Savings account", "balance": 10  }
   ]
 }

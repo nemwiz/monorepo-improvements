@@ -8,6 +8,7 @@
     "jsx": "react",
     "esModuleInterop": true,
     "composite": true,
+    "tsBuildInfoFile": "./dist/tsbuildinfo",
     "baseUrl": ".",
     "paths": {
       "@mono/domain/*": ["../domain/dist/*"]
