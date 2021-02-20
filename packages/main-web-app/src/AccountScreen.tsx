@@ -2,11 +2,12 @@ import React, {FC, useEffect, useState} from "react";
 import {Account} from "@mono/domain";
 import {getAccounts} from "@mono/domain";
 import ModalError from "./ModalError";
+import {MonoError} from "@mono/http-client";
 
 const AccountScreen: FC<{accountId: number}> = ({accountId}) => {
     const [isLoading, setIsLoading] = useState(true);
     const [account, setAccount] = useState<Account>(undefined);
-    const [error, setError] = useState(undefined);
+    const [error, setError] = useState<MonoError>(undefined);
 
     useEffect(() => {
         getAccounts(accountId).then(newAccount => {

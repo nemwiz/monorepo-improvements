@@ -1,12 +1,13 @@
 import React, {FC, useEffect, useState} from "react";
 import {getPortfolios, Portfolio} from '@mono/domain';
 import InlineError from "./InlineError";
+import {MonoError} from "@mono/http-client";
 
 const PortfolioScreen: FC<{ portfolioId: number }> = ({portfolioId}) => {
 
     const [isLoading, setIsLoading] = useState(true);
     const [portfolio, setPortfolio] = useState<Portfolio>(undefined);
-    const [error, setError] = useState(undefined);
+    const [error, setError] = useState<MonoError>(undefined);
 
     useEffect(() => {
 
